@@ -1,0 +1,31 @@
+<h1>Create a new todo</h1>
+
+<% if @todo.errors.any? %>
+    <h2>Errors found: </h2>
+        <ul>
+            <% @todo.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end%>
+        </ul>
+<% end %>
+
+<%= form_for @todo do |f| %>
+    <p>
+        <%= f.label :name, "Name"%> <br>
+        <%= f.text_field :name %>
+    </p>
+    
+    <p>
+        <%= f.label :description, "Description" %> <br>
+        <%= f.text_field :description %> 
+    </p> 
+
+    <p>
+        <%= f.submit %>
+    </p> 
+
+    <!-- form_for @object, html: { multipart: true }, do |f| -->
+    <!-- form_for @object, html: { class: "classname" }, do |f| -->
+
+    
+<% end %>
